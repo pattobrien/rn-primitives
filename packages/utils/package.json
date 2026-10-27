@@ -3,14 +3,11 @@
   "version": "1.5.2",
   "description": "Primitive types",
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
       "types": "./dist/index.d.ts",
+      "react-native": "./dist/index.native.js",
       "default": "./dist/index.js"
     }
   },
@@ -18,9 +15,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
-    "clean": "rm -rf dist",
+    "build": "vp pack",
+    "dev": "vp pack --watch",
     "pub:beta": "echo 'Skipping pub:beta: this package uses pub:beta:first to allow batch updates with the new npm auth system.'",
     "pub:beta:first": "pnpm publish --no-git-checks --access public --tag beta",
     "pub:next": "echo 'Skipping pub:next: this package uses pub:next:first to allow batch updates with the new npm auth system.'",
@@ -32,8 +28,7 @@
     "@tsconfig/react-native": "^1.0.1",
     "@types/react": "~19.2.2",
     "react": "19.2.0",
-    "react-native": "0.83.2",
-    "tsup": "^8.1.0"
+    "react-native": "0.83.2"
   },
   "peerDependencies": {
     "react": "*",
