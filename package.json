@@ -25,15 +25,6 @@
     "typescript": "^5.8.3",
     "vite-plus": "1.4.0"
   },
-  "pnpm": {
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "@babel/*",
-        "expo-modules-*",
-        "typescript"
-      ]
-    }
-  },
   "prettier": {
     "printWidth": 100,
     "tabWidth": 2,
@@ -42,7 +33,7 @@
     "trailingComma": "es5"
   },
   "engines": {
-    "node": ">=20.11.0"
+    "node": "^22.18.0 || ^24.11.0 || >=26.0.0"
   },
-  "packageManager": "pnpm@9.1.4"
+  "packageManager": "pnpm@12.12.1"
 }
