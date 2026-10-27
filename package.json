@@ -1,6 +1,7 @@
 {
   "name": "@rn-primitives/monorepo",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "turbo dev --concurrency=34",
     "dev:primitives": "turbo dev --filter=./packages/* --concurrency=33",
