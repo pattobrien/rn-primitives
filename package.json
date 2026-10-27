@@ -1,6 +1,7 @@
 {
   "name": "@rn-primitives/monorepo",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "turbo dev --concurrency=34",
     "dev:primitives": "turbo dev --filter=./packages/* --concurrency=33",
@@ -21,7 +22,8 @@
   "devDependencies": {
     "@changesets/cli": "^2.29.2",
     "turbo": "^2.0.1",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vite-plus": "1.4.0"
   },
   "pnpm": {
     "peerDependencyRules": {
