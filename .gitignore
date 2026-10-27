@@ -62,3 +62,6 @@ xcuserdata
 
 # VSCode
 .history/
+
+# Fork release
+release-packages
