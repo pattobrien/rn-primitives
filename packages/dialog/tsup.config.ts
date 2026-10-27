@@ -1,16 +1,37 @@
-import { defineConfig, Options } from 'tsup';
+import { defineConfig, type Options } from 'tsup';
 
-export default defineConfig((options: Options) => ({
-  entry: ['src/index.ts', 'src/dialog.tsx', 'src/dialog.web.tsx'],
-  banner: {
-    js: "'use client'",
+const webExtensions = ['.web.tsx', '.web.ts', '.tsx', '.ts'];
+
+const shared: Options = {
+  format: 'esm',
+  banner: { js: "'use client'" },
+};
+
+export default defineConfig([
+  {
+    ...shared,
+    entry: { index: 'src/index.ts' },
+    dts: true,
+    esbuildOptions(options) {
+      options.jsx = 'transform';
+      options.resolveExtensions = webExtensions;
+    },
   },
-  clean: true,
-  format: ['cjs', 'esm'],
-  external: ['react', './dialog'],
-  dts: true,
-  ...options,
-  esbuildOptions(options) {
-    options.jsx = 'preserve';
+  {
+    ...shared,
+    entry: { 'index.web': 'src/index.ts' },
+    outExtension: () => ({ js: '.jsx' }),
+    esbuildOptions(options) {
+      options.jsx = 'preserve';
+      options.resolveExtensions = webExtensions;
+    },
   },
-}));
+  {
+    ...shared,
+    entry: { 'index.native': 'src/index.ts' },
+    outExtension: () => ({ js: '.jsx' }),
+    esbuildOptions(options) {
+      options.jsx = 'preserve';
+    },
+  },
+]);

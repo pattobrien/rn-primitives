@@ -20,10 +20,13 @@
       "es2022.object",
       "es2022.string"
     ],
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "skipLibCheck": true
   },
   "exclude": [
     "dist",
     "build",
     "node_modules"
-  ],
+  ]
 }
